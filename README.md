@@ -1,14 +1,14 @@
 # Pengembangan Aplikasi Bergerak (PAB)
 
 ## Topik Bahasan
-- Pengenalan React Tingkat Dasar
-- Pengenalan React Tingkat Lanjut
-- React Native Core Component
-- Design in React Native
-- Interaction & Navigation in React Native
-- Networking in React Native
-- Studi Kasus: Aplikasi React Native dengan AsyncStorage
-- Studi Kasus: Aplikasi React Native dengan Public API
+- Modul 01: Pengenalan React Tingkat Dasar
+- Modul 02: Pengenalan React Tingkat Lanjut
+- Modul 03: React Native Core Component
+- Modul 04: Design in React Native
+- Modul 05: Interaction & Navigation in React Native
+- Modul 06: Networking in React Native
+- Modul 07 & 08: Studi Kasus Aplikasi React Native dengan AsyncStorage
+- Modul 09 & 10: Studi Kasus Aplikasi React Native dengan Public API
 
 ## Bahan Ajar
 - https://drive.google.com/drive/folders/1pmN7XE7DLIwUglxAavtwt55UYqOdbjod?usp=share_link
