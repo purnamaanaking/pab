@@ -1,5 +1,7 @@
 # Pengembangan Aplikasi Bergerak (PAB)
 
+## Deskripsi
+
 Perkembangan teknologi yang semakin pesat dewasa ini, termasuk perkembangan pada perangkat bergerak atau handphone. Hingga saat ini penggunaan perangkat 
 bergerak semakin memasyarakat. Perangkat bergerak tidak hanya digunakan untuk menelpon atau mengirimkan sms, saat ini perangkat bergerak juga dapat 
 digunakan untuk meningkatkan kinerja organisasi. 
