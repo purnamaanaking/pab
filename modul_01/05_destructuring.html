@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Dasar</h1>
+    <h2>Destructuring</h2>
+    <script>
+        // Array
+        let barang = ["Meja", "Kursi", "Lemari"];
+
+        // Deklarasi variable secara manual
+        let a = barang[0];
+        let b = barang[1];
+        let c = barang[2];
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        // Deklarasi variable dengan desctructuring
+        let [x, y, z] = barang;
+
+        console.log(x);
+        console.log(y);
+        console.log(z);
+
+        // Object
+        let mahasiswa = {
+            nama: "Budi",
+            umur: 22,
+            jurusan: "Sistem Informasi"
+        }
+
+        // Deklarasi variable secara manual
+        let n = mahasiswa.nama;
+        let u = mahasiswa.umur;
+        let j = mahasiswa.jurusan;
+
+        console.log(n);
+        console.log(u);
+        console.log(j);
+
+        // Deklarasi variable dengan desctructuring
+        let {nama, umur, jurusan} = mahasiswa;
+
+        console.log(nama);
+        console.log(umur);
+        console.log(jurusan);
+
+        // Destructuring dengan memberikan alias
+        let {nama: namaMahasiswa, umur: umurMahasiswa, jurusan: jurusanMahasiswa} = mahasiswa;
+
+        console.log(namaMahasiswa);
+        console.log(umurMahasiswa);
+        console.log(jurusanMahasiswa);
+
+        // Destructuring dari sebuah return value sebuah function
+        const dataMahasiswa = () => {
+            return {nama: "Roni", umur: 19, jurusan: "Teknik Informatika"}
+        }
+
+        let {nama: dataNamaMahasiswa, umur: dataUmurMahasiswa, jurusan: dataJurusanMahasiswa} = dataMahasiswa();
+
+        console.log(dataNamaMahasiswa);  
+        console.log(dataUmurMahasiswa); 
+        console.log(dataJurusanMahasiswa);  
+    </script>
+</body>
+</html>

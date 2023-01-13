@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Method</title>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Dasar</h1>
+    <h2>Array Method</h2>
+    <script>
+        // forEach
+        let arr = [10, 20, 30, 40];
+        arr.forEach(function(val, key) {
+            console.log(`Nilai array di index ke-${key} adalah ${val}`);
+        });
+
+        // Map
+        let arrKuadrat = arr.map((val) => val * val);
+        console.log(arrKuadrat);
+    </script>
+</body>
+</html>
+

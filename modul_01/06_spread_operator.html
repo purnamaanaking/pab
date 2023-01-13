@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Dasar</h1>
+    <h2>Spread Operator</h2>
+    <script>
+        // Array
+        let arr1 = [10, 20, 30];
+        let arr2 = [100, 200, 300];
+
+        // Tanpa Spread Operator
+        let arr3 = [arr1, arr2];
+        console.log(arr3);
+
+        // Dengan Spread Operator
+        let arr4 = [...arr1,...arr2];
+        console.log(arr4);
+
+        // Dengan Spread Operator
+        let arr5 = [...arr1, 40, 50];
+        console.log(arr5);
+
+        // Dengan Spread Operator
+        let arr6 = [30, 40, 50, ...arr1];
+        console.log(arr6);
+
+        // Object
+        let mahasiswa = {
+            nama: "Budi",
+            umur: 22,
+            jurusan: "Sistem Informasi"
+        };
+
+        // Tanpa Spread Operator
+        let mahasiswa1 = {
+            mahasiswa,
+            umur: 25,
+            tempatLahir: "Jakarta"
+        };
+        console.log(mahasiswa1);
+
+        // Dengan Spread Operator
+        let mahasiswa2 = {
+            ...mahasiswa,
+            umur: 20,
+            tempatLahir: "Surabaya"
+        };
+        console.log(mahasiswa2);
+    </script>
+</body>
+</html>
