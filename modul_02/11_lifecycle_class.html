@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siklus Hidup Komponen React (Class)</title>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Lanjut</h1>
+    <h2>Siklus Hidup Komponen React (Class)</h2>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class Counter extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { counter: 0 };
+                console.log("Ini dari constructor()");
+            }
+
+            handleButtonClick = (e) => {
+                let val = parseInt(e.target.getAttribute("val"));
+                this.setState({ counter: this.state.counter + val })
+            }
+
+            render() {
+                console.log("Ini dari render()");
+                return (
+                <div>
+                    <h1> {this.state.counter} </h1>
+                    <button val="+1" onClick={this.handleButtonClick}>Counter + 1</button>
+                    <button val="-1" onClick={this.handleButtonClick}>Counter - 1</button>
+                </div>
+                )
+            }
+
+            componentDidMount() {
+                console.log("Ini dari componentDidMount()");
+            }
+
+            componentDidUpdate() {
+                console.log("Ini dari componentDidUpdate()");
+            }
+
+            componentWillUnmount() {
+                console.log("Ini dari componentWillUnmount()");
+            }
+        }
+
+        class MyApp extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { showCounter: false };
+            }
+
+            handleButtonClick = () => {
+                this.setState({ 
+                    showCounter: !this.state.showCounter 
+                })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.handleButtonClick}>
+                            {this.state.showCounter ? "Hide counter" : "Show counter"}
+                        </button>
+                        {this.state.showCounter && <Counter />}
+                    </div>
+                )
+            }
+        }
+
+        const myElement = <MyApp />;
+
+        ReactDOM.createRoot(document.getElementById('root')).render(myElement);
+    </script>
+</body>
+</html>

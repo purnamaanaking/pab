@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ref di Class Component</title>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Lanjut</h1>
+    <h2>Ref di Class Component</h2>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    judul: "Belajar React"
+                };
+                this.foo = "Hei";
+                console.log('A:', this.foo);
+            }
+
+            handleButtonClick = () => {
+                console.log('B:', this.foo);
+                this.foo = "Hello";
+                console.log('C:', this.foo);
+
+                if (this.state.judul === "Belajar React") {
+                    this.setState({ judul: "Belajar JavaScript" });
+                }
+                else {
+                    this.setState({ judul: "Belajar React" });
+                }
+            }
+
+            handleFooClick = () => {
+                console.log('Get Foo:', this.foo);
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h3>Judul: {this.state.judul}</h3>
+                        <div>
+                            <p><button onClick={this.handleButtonClick}>Ubah Judul</button></p>
+                            <p><button onClick={this.handleFooClick}>Ambil Nilai Foo</button></p>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        const myElement = <MyApp />;
+
+        ReactDOM.createRoot(document.getElementById('root')).render(myElement);
+    </script>
+</body>
+</html>

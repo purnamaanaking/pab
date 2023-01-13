@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form State</title>
+
+    <style>
+        .container div {
+            padding-bottom: 0.6rem;
+        }
+    
+        div label:first-child {
+            display: inline-block;
+            width: 180px;
+        }
+    
+        label {
+            vertical-align: top;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 230px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pengenalan React Tingkat Lanjut</h1>
+    <h2>Form State</h2>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    nama: "",
+                    email: "",
+                    alamat: "",
+                    jurusan: "",
+                    jenisKelamin: "",
+                    beasiswa: false
+                };
+            }
+
+            handleInputChange = (event) => {
+                console.log(event.target);
+                if (event.target.type === "checkbox") {
+                    this.setState({ [event.target.name]: event.target.checked })
+                }
+                else {
+                    this.setState({ [event.target.name]: event.target.value })
+                }
+            }
+
+            handleButtonClick = (event) => {
+                event.preventDefault();
+                console.log(this.state);
+            }
+
+            render() {
+                return (
+                    <form action="" method="get" className="container">
+
+                        <div>
+                            <label htmlFor="nama">Nama </label>
+                            <input type="text" name="nama" id="nama" onChange={this.handleInputChange} />
+                        </div>
+
+                        <div>
+                            <label htmlFor="email">Email </label>
+                            <input type="email" name="email" id="email" onChange={this.handleInputChange} />
+                        </div>
+
+                        <div>
+                            <label htmlFor="alamat">Alamat </label>
+                            <textarea name="alamat" id="alamat" onChange={this.handleInputChange} />
+                        </div>
+
+                        <div>
+                            <label htmlFor="email">Jurusan </label>
+                            <select name="jurusan" value={this.state.jurusan} onChange={this.handleInputChange}>
+                                <option value="Ilmu Komputer">Ilmu Komputer</option>
+                                <option value="Sistem Informasi">Sistem Informasi</option>
+                                <option value="Teknik Informatika">Teknik Informatika</option>
+                                <option value="Teknik Komputer">Teknik Komputer</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label>Jenis kelamin </label>
+                            
+                            <input 
+                                type="radio"
+                                name="jenisKelamin" 
+                                id="jenisKelamin1" 
+                                value="Laki-laki" 
+                                checked={this.state.jenisKelamin === "Laki-laki"} 
+                                onChange={this.handleInputChange} 
+                            />
+                            <label htmlFor="jenisKelamin1">Laki-laki</label>
+                            
+                            <input 
+                                type="radio" 
+                                name="jenisKelamin" 
+                                id="jenisKelamin2" 
+                                value="Perempuan" 
+                                checked={this.state.jenisKelamin === "Perempuan"} 
+                                onChange={this.handleInputChange} 
+                            />
+                            <label htmlFor="jenisKelamin2">Perempuan</label>
+                        </div>
+
+                        <div>
+                            <label>Status beasiswa </label>
+                            <input type="checkbox" id="beasiswa" name="beasiswa" onChange={this.handleInputChange} />
+                            <label htmlFor="beasiswa">Dapat beasiswa</label>
+                        </div>
+
+                        <input type="submit" onClick={this.handleButtonClick} value="Simpan" />
+                    </form>
+                )
+            }
+        }
+
+        const myElement = <MyApp />;
+
+        ReactDOM.createRoot(document.getElementById('root')).render(myElement);
+    </script>
+</body>
+</html>
