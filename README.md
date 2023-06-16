@@ -9,6 +9,3 @@
 - Modul 06: Networking in React Native
 - Modul 07 & 08: Studi Kasus Aplikasi React Native dengan AsyncStorage
 - Modul 09 & 10: Studi Kasus Aplikasi React Native dengan Public API
-
-## Bahan Ajar
-- https://drive.google.com/drive/folders/1pmN7XE7DLIwUglxAavtwt55UYqOdbjod?usp=share_link
