@@ -2,15 +2,15 @@
 let myElement = "Hello World";
 
 // Basic Rules
-// let myElement = "<h3>Hello React</h3>"; // wrong
+// myElement = "<h3>Hello React</h3>"; // wrong
 myElement = <h3>Hello React</h3>; // correct
 
 // Basic Rules
-// const myElement = <img src="https://placehold.co/600x400" >; // wrong
+// myElement = <img src="https://placehold.co/600x400" >; // wrong
 myElement = <img src="https://placehold.co/600x400" />; // correct
 
 // Basic Rules
-// const myElement = (
+// myElement = (
 //     <p>Learn Javascript</p>
 //     <p>Learn React</p>
 // ); // wrong
