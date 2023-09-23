@@ -1,12 +1,8 @@
 // MyApp Component
 class MyApp extends React.Component {
-    // Constructor method
-    constructor() {
-        super();
-        this.state = { 
-            counter: 0 
-        };
-    }
+    state = { 
+        counter: 0 
+    };
 
     handleDec = () => {
         this.setState({ counter: this.state.counter - 1 });
