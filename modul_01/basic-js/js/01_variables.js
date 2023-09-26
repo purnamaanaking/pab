@@ -8,26 +8,26 @@ console.log(i);
 
 // Var
 function looping() {
-    for (var i = 0; i < 5; i++) {
-        console.log(i);
+    for (var j = 0; j < 5; j++) {
+        console.log(j);
     }
 }
 looping();
-console.log(i);
+console.log(j);
 
 // Let
-for (let i = 0; i < 5; i++) {
-    console.log(i);
+for (let k = 0; k < 5; k++) {
+    console.log(k);
 }
-console.log(i);
+console.log(k);
 
 // Let
-for (let i = 0; i < 5; i++) {
-    console.log(i);
+for (let l = 0; l < 5; l++) {
+    console.log(l);
 }
 if (true) {
-    let i = 100;
-    console.log("i =",i);
+    let l = 100;
+    console.log("l =",l);
 }
 
 // Const
