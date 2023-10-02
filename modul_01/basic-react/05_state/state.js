@@ -2,7 +2,7 @@
 class Cat extends React.Component {
     // State Declaration
     state = { 
-        isHungry: true 
+        isHungry: true, 
     };
 
     render() {
@@ -11,6 +11,7 @@ class Cat extends React.Component {
                 <p>I am {this.props.name}, and I am {this.state.isHungry ? " hungry" : " full"}!</p>
                 <button
                     onClick={() => {
+                        // Change the state value
                         this.setState({ isHungry: false });
                     }}
                     disabled={!this.state.isHungry}

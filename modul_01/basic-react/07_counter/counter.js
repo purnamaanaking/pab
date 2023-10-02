@@ -5,10 +5,12 @@ class MyApp extends React.Component {
     };
 
     handleDec = () => {
+        // Change the state value
         this.setState({ counter: this.state.counter - 1 });
     }
 
     handleInc = () => {
+        // Change the state value
         this.setState({ counter: this.state.counter + 1 });
     }
 
