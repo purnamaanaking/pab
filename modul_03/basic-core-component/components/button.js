@@ -1,6 +1,6 @@
-import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
+// Functional Component with props
 const Button = (props) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
@@ -9,6 +9,7 @@ const Button = (props) => {
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#dddddd",

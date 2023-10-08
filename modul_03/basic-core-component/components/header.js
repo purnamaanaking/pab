@@ -1,6 +1,6 @@
-import React from "react";
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 
+// Functional Component with props
 const Header = (props) => {
   return (
     <View style={styles.header}>
@@ -34,8 +34,7 @@ const Header = (props) => {
   );
 };
 
-export default Header;
-
+// Styles
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#AA0002",
@@ -59,3 +58,5 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
+
+export default Header;

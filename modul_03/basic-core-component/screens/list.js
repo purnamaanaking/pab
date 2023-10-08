@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FlatList,
   Image,
@@ -8,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
+// Dummmy Data (Array of Object)
 const data = [
   {
     id: 1,
@@ -18,14 +18,14 @@ const data = [
   },
   {
     id: 2,
-    title:
-      "Mahasiswa ITTelkom Surabaya Menang Kompetisi di New Delhi",
+    title: "Mahasiswa ITTelkom Surabaya Menang Kompetisi di New Delhi",
     image:
       "https://ittelkom-sby.ac.id/wp-content/uploads/2022/10/asdfghjk-768x492.jpg",
   },
   {
     id: 3,
-    title: "Benarkah Generasi Baru Generasi Strawberi? Ayo Belajar Growth Mindset dari Kampus ITTelkom Surabaya",
+    title:
+      "Benarkah Generasi Baru Generasi Strawberi? Ayo Belajar Growth Mindset dari Kampus ITTelkom Surabaya",
     image:
       "https://ittelkom-sby.ac.id/wp-content/uploads/2022/10/asdfghkl-768x472.jpg",
   },
@@ -51,14 +51,14 @@ const data = [
   },
   {
     id: 7,
-    title:
-      "Mahasiswa ITTelkom Surabaya Menang Kompetisi di New Delhi",
+    title: "Mahasiswa ITTelkom Surabaya Menang Kompetisi di New Delhi",
     image:
       "https://ittelkom-sby.ac.id/wp-content/uploads/2022/10/asdfghjk-768x492.jpg",
   },
   {
     id: 8,
-    title: "Benarkah Generasi Baru Generasi Strawberi? Ayo Belajar Growth Mindset dari Kampus ITTelkom Surabaya",
+    title:
+      "Benarkah Generasi Baru Generasi Strawberi? Ayo Belajar Growth Mindset dari Kampus ITTelkom Surabaya",
     image:
       "https://ittelkom-sby.ac.id/wp-content/uploads/2022/10/asdfghkl-768x472.jpg",
   },
@@ -77,7 +77,9 @@ const data = [
   },
 ];
 
+// Functional Component
 const List = () => {
+  // Arrow Function with destructured argument
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity style={styles.view} onPress={() => alert("Pressed")}>
@@ -100,8 +102,7 @@ const List = () => {
   );
 };
 
-export default List;
-
+// Styles
 const styles = StyleSheet.create({
   view: {
     padding: 15,
@@ -117,3 +118,5 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
 });
+
+export default List;
