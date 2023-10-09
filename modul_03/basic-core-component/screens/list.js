@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 // Dummmy Data (Array of Object)
-const data = [
+const datas = [
   {
     id: 1,
     title:
@@ -92,13 +92,11 @@ const List = () => {
   };
 
   return (
-    <View style={{ paddingBottom: 100 }}>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <FlatList
+      data={datas}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
   );
 };
 

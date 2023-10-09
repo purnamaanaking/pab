@@ -5,7 +5,7 @@ import Button from "../components/button";
 // Functional Component
 const Article = () => {
   // Arrow Function
-  const ButtonHandler = () => {
+  const buttonHandler = () => {
     Alert.alert("Button Handler");
   };
 
@@ -98,7 +98,7 @@ const Article = () => {
         <Separator height={10} />
         <View style={{ backgroundColor: "gray", height: 1 }} />
         <Separator height={20} />
-        <Button text="Share" onPress={ButtonHandler} />
+        <Button text="Share" onPress={buttonHandler} />
         <Separator height={70} />
       </View>
     </ScrollView>

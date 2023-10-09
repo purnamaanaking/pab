@@ -42,11 +42,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 15,
   },
-  stripeMenu: {
-    width: 23,
-    backgroundColor: "white",
-    height: 3,
-  },
   iconsView: {
     flexDirection: "row",
     alignItems: "center",
