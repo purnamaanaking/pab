@@ -1,10 +1,12 @@
 import React from "react";
-import { NativeBaseProvider, Box, Center } from "native-base";
+import { NativeBaseProvider, Center, Heading } from "native-base";
 
 const NativeBaseBasic = () => {
   return (
     <NativeBaseProvider>
-      <Center flex={1}>Hello world</Center>
+      <Center flex={1}>
+        <Heading>Native Base</Heading>
+      </Center>
     </NativeBaseProvider>
   );
 };

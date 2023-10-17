@@ -78,6 +78,7 @@ const App = () => {
         );
       })}
       <Button text="Close" onPress={() => drawer.current.closeDrawer()} />
+      <Separator height={30} />
     </ScrollView>
   );
 
