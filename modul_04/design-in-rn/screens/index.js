@@ -10,6 +10,7 @@ import WidthHeightBasics from "./WidthHeightBasics";
 import PositionLayout from "./PositionLayout";
 import DisplayAnImageWithStyle from "./DisplayAnImageWithStyle";
 import NativeBaseBasic from "./NativeBaseBasic";
+import GlueStackUIBasic from "./GlueStackUIBasic";
 
 export {
   LotsOfStyles,
@@ -24,4 +25,5 @@ export {
   PositionLayout,
   DisplayAnImageWithStyle,
   NativeBaseBasic,
+  GlueStackUIBasic,
 };

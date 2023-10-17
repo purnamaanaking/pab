@@ -21,6 +21,7 @@ import {
   PositionLayout,
   DisplayAnImageWithStyle,
   NativeBaseBasic,
+  GlueStackUIBasic,
 } from "./screens";
 
 // Functional Component
@@ -46,6 +47,7 @@ const App = () => {
     { name: "Position Layout", comp: <PositionLayout /> },
     { name: "Display An Image With Style", comp: <DisplayAnImageWithStyle /> },
     { name: "Native Base Basic", comp: <NativeBaseBasic /> },
+    { name: "Gluestack UI Basic", comp: <GlueStackUIBasic /> },
   ];
   // Ref Declaration
   const content = useRef(pageArr[0]);
