@@ -1,5 +1,5 @@
 import { Heading, ScrollView, Image, Box, Text, Divider } from "native-base";
-import Header from "../components/header";
+import { Header } from "../components";
 
 const NewsDetail = ({ route }) => {
   // Get the params

@@ -1,5 +1,5 @@
-import { Heading, Center } from "native-base";
-import { Header } from "../components/";
+import { Center, Heading } from "@gluestack-ui/themed";
+import { Header } from "../../components";
 
 const Video = () => {
   return (
