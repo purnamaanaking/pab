@@ -8,5 +8,5 @@
 - Modul 04: Design in React Native
 - Modul 05: Interaction & Navigation in React Native
 - Modul 06: Networking in React Native
-- Modul 07 & 08: Studi Kasus Aplikasi React Native dengan AsyncStorage
-- Modul 09 & 10: Studi Kasus Aplikasi React Native dengan Firebase
+- Modul 07: Studi Kasus Aplikasi React Native dengan AsyncStorage
+- Modul 08: Studi Kasus Aplikasi React Native dengan Firebase
