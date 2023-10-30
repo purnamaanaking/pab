@@ -10,6 +10,7 @@ import {
 } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { Link, useLocalSearchParams } from "expo-router";
+import { format } from "date-fns";
 
 const NewsDetail = () => {
   const params = useLocalSearchParams();
@@ -25,7 +26,7 @@ const NewsDetail = () => {
           role="img"
         />
         <Box p={"$4"}>
-          <Text mb={"$1"}>{params.date}</Text>
+          <Text mb={"$1"}>{format(new Date(params.date), "dd MMMM yyyy")}</Text>
           <Heading lineHeight={"$xl"} fontSize={"$2xl"}>
             {params.title}
           </Heading>

@@ -1,6 +1,6 @@
 import { Center, ScrollView, Spinner } from "@gluestack-ui/themed";
 import { useEffect, useState } from "react";
-import CategoryButton from "./categoty-button";
+import CategoryButton from "./category-button";
 
 const Categories = ({ onChange }) => {
   const [categories, setCategories] = useState([]);
