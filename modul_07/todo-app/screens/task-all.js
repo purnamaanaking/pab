@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Center,
-  HStack,
-  IconButton,
-  Input,
-  Icon,
   Box,
+  HStack,
+  Input,
+  IconButton,
+  Icon,
+  Center,
   Toast,
   ScrollView,
   Spinner,
@@ -14,77 +14,66 @@ import { Feather } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TaskList } from "../components";
 
-class TaskScreen extends React.Component {
-  constructor(props) {
-    super(props);
+const TaskScreen = () => {
+  const [list, setList] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-    this.toastID = "toast-add-task";
-    this.state = {
-      list: [],
-      inputValue: "",
-      isLoading: true,
-    };
-  }
+  const toastID = "toast-add-task";
 
-  handleAddTask = (data) => {
+  const handleAddTask = (data) => {
     if (data === "") {
-      if (!Toast.isActive(this.toastID)) {
+      if (!Toast.isActive(toastID)) {
         Toast.show({
-          id: this.toastID,
+          id: toastID,
           title: "Masukan nama task",
         });
       }
       return;
     }
 
-    const prevList = this.state.list;
+    setList((prevList) => [...prevList, { title: data, isCompleted: false }]);
+    setInputValue("");
 
-    this.setState(
-      { list: [...prevList, { title: data, isCompleted: false }] },
-      () => {
-        try {
-          AsyncStorage.setItem("@task-list", JSON.stringify(this.state.list));
-        } catch (e) {
-          console.log("Error add task: in task-all.js");
-          console.error(e.message);
-        }
-      }
-    );
+    try {
+      AsyncStorage.setItem("@task-list", JSON.stringify([...list, { title: data, isCompleted: false }]));
+    } catch (e) {
+      console.log("Error add task: in task-all.js");
+      console.error(e.message);
+    }
   };
 
-  handleDeleteTask = (index) => {
-    const deletedList = this.state.list.filter(
-      (list, listIndex) => listIndex !== index
-    );
-    this.setState({ list: deletedList }, () => {
-      try {
-        AsyncStorage.setItem("@task-list", JSON.stringify(this.state.list));
-      } catch (e) {
-        console.log("Error delete task: in task-all.js");
-        console.error(e.message);
-      }
-    });
+  const handleDeleteTask = (index) => {
+    const deletedList = list.filter((_, listIndex) => listIndex !== index);
+    setList(deletedList);
+
+    try {
+      AsyncStorage.setItem("@task-list", JSON.stringify(deletedList));
+    } catch (e) {
+      console.log("Error delete task: in task-all.js");
+      console.error(e.message);
+    }
   };
 
-  handleStatusChange = (index) => {
-    const newList = this.state.list;
+  const handleStatusChange = (index) => {
+    const newList = [...list];
     newList[index].isCompleted = !newList[index].isCompleted;
-    this.setState({ list: newList }, () => {
-      try {
-        AsyncStorage.setItem("@task-list", JSON.stringify(this.state.list));
-      } catch (e) {
-        console.log("Error update status task: in task-all.js");
-        console.error(e.message);
-      }
-    });
+    setList(newList);
+
+    try {
+      AsyncStorage.setItem("@task-list", JSON.stringify(newList));
+    } catch (e) {
+      console.log("Error update status task: in task-all.js");
+      console.error(e.message);
+    }
   };
 
-  getTaskList = async () => {
+  const getTaskList = async () => {
     try {
       const value = await AsyncStorage.getItem("@task-list");
       if (value !== null) {
         console.log(value);
-        this.setState({ list: JSON.parse(value) }); //mengupdate value dari state yg bernama list, di isi dengan value yang dia dapatkan dari AsyncStorage kemudian value tersebut dia konversi ke dalam bentuk JSON Object.
+        setList(JSON.parse(value));
       } else {
         console.log("No Tasks");
       }
@@ -92,70 +81,64 @@ class TaskScreen extends React.Component {
       console.log("Error get task: in task-all.js");
       console.error(e);
     } finally {
-      this.setState({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
-  componentDidMount() {
-    this.getTaskList();
-  }
+  useEffect(() => {
+    getTaskList();
+  }, []);
 
-  render() {
-    const { list, inputValue, isLoading } = this.state;
-    return (
-      <Box flex={1}>
-        <Box mt="15px" mx="15px" mb="7.5px">
-          <HStack space="15px">
-            <Input
-              size="lg"
-              flex={6}
-              onChangeText={(char) => this.setState({ inputValue: char })}
-              value={inputValue}
-              borderWidth={1}
-              borderColor="primary.600"
-              placeholder="Add Task"
-            />
-            <IconButton
-              flex={1}
-              borderRadius="sm"
-              variant="solid"
-              icon={
-                <Icon as={Feather} name="plus" size="lg" color="warmGray.50" />
-              }
-              onPress={() => {
-                this.handleAddTask(inputValue);
-                this.setState({ inputValue: "" });
-              }}
-            />
-          </HStack>
-        </Box>
-        {isLoading ? (
-          <Center flex={1}>
-            <Spinner size="lg" />
-          </Center>
-        ) : (
-          <ScrollView>
-            <Box mb="15px" mx="15px">
-              {list.map((item, index) => {
-                return (
-                  <Box key={item.title + index.toString()}>
-                    <TaskList
-                      data={item}
-                      index={index}
-                      deletedIcon={true}
-                      onItemPress={() => this.handleStatusChange(index)}
-                      onChecked={() => this.handleStatusChange(index)}
-                      onDeleted={() => this.handleDeleteTask(index)}
-                    />
-                  </Box>
-                );
-              })}
-            </Box>
-          </ScrollView>
-        )}
+  return (
+    <Box flex={1}>
+      <Box mt="15px" mx="15px" mb="7.5px">
+        <HStack space="15px">
+          <Input
+            size="lg"
+            flex={6}
+            onChangeText={(char) => setInputValue(char)}
+            value={inputValue}
+            borderWidth={1}
+            borderColor="primary.600"
+            placeholder="Add Task"
+          />
+          <IconButton
+            flex={1}
+            borderRadius="sm"
+            variant="solid"
+            icon={
+              <Icon as={Feather} name="plus" size="lg" color="warmGray.50" />
+            }
+            onPress={() => {
+              handleAddTask(inputValue);
+            }}
+          />
+        </HStack>
       </Box>
-    );
-  }
-}
+      {isLoading ? (
+        <Center flex={1}>
+          <Spinner size="lg" />
+        </Center>
+      ) : (
+        <ScrollView>
+          <Box mb="15px" mx="15px">
+            {list.map((item, index) => (
+              <Box key={item.title + index.toString()}>
+                <TaskList
+                  data={item}
+                  index={index}
+                  deletedIcon={true}
+                  onItemPress={() => handleStatusChange(index)}
+                  onChecked={() => handleStatusChange(index)}
+                  onDeleted={() => handleDeleteTask(index)}
+                />
+              </Box>
+            ))}
+          </Box>
+        </ScrollView>
+      )}
+    </Box>
+  );
+};
 
 export default TaskScreen;

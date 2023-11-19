@@ -1,12 +1,11 @@
-import { Text, HStack, IconButton, Icon, Box, Checkbox } from "native-base";
-import { TouchableOpacity } from "react-native";
+import { Text, HStack, IconButton, Icon, Box, Checkbox, Pressable } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const TaskList = (props) => {
   const { data, onChecked, onDeleted, deletedIcon, onItemPress } = props;
 
   return (
-    <TouchableOpacity onPress={onItemPress}>
+    <Pressable onPress={onItemPress}>
       <Box
         px={3}
         py={4}
@@ -49,7 +48,7 @@ const TaskList = (props) => {
           )}
         </HStack>
       </Box>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
