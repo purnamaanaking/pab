@@ -54,7 +54,13 @@ const TaskCompletedScreen = () => {
         </Center>
       ) : completedListLength === 0 ? (
         <Center flex={1}>
-          <Icon as={AntDesign} name="frowno" size={82} color="primary.600" mb={2} />
+          <Icon
+            as={AntDesign}
+            name="frowno"
+            size={82}
+            color="primary.600"
+            mb={2}
+          />
           <Text fontSize={16} bold={true}>
             No completed listings yet
           </Text>

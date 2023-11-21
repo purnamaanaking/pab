@@ -1,4 +1,12 @@
-import { Text, HStack, IconButton, Icon, Box, Checkbox, Pressable } from "native-base";
+import {
+  Text,
+  HStack,
+  IconButton,
+  Icon,
+  Box,
+  Checkbox,
+  Pressable,
+} from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const TaskList = (props) => {

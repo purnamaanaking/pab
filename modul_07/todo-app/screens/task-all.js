@@ -36,7 +36,10 @@ const TaskScreen = () => {
     setInputValue("");
 
     try {
-      AsyncStorage.setItem("@task-list", JSON.stringify([...list, { title: data, isCompleted: false }]));
+      AsyncStorage.setItem(
+        "@task-list",
+        JSON.stringify([...list, { title: data, isCompleted: false }])
+      );
     } catch (e) {
       console.log("Error add task: in task-all.js");
       console.error(e.message);
